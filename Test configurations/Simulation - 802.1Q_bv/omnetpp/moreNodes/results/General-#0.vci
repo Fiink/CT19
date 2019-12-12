@@ -1,0 +1,1280 @@
+file 70788781 1575468648                                        
+version 2
+run General-0-20191204-15:10:40-28750
+attr configname General
+attr datetime 20191204-15:10:40
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network small_network
+attr processid 28750
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param **.scheduler.tick 80ns
+param **.scheduler.numPeriods 1
+param **.scheduler.period[0].cycle_ticks sec_to_tick(0.005s)
+param **.scheduler.oscillator.max_drift 2800ppm
+param **.scheduler.oscillator.drift_change uniform(-75ppm,75ppm)
+param **.precission 16ns
+param **.gateControlList.period "\"period[0]\""
+param **.node1.phy[*].mac.address "\"0A-00-00-00-00-01\""
+param **.node1.numApps 7
+param **.node1.app[0].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[0].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[0].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[0].sendInterval 500us
+param **.node1.app[0].priority 7
+param **.node1.app[0].vid 7
+param **.node1.app[1].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[1].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[1].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[1].sendInterval 500us
+param **.node1.app[1].priority 5
+param **.node1.app[1].vid 7
+param **.node1.app[2].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[2].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[2].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[2].sendInterval 500us
+param **.node1.app[2].priority 4
+param **.node1.app[2].vid 7
+param **.node1.app[3].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[3].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[3].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[3].sendInterval 500us
+param **.node1.app[3].priority 3
+param **.node1.app[3].vid 7
+param **.node1.app[4].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[4].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[4].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[4].sendInterval 500us
+param **.node1.app[4].priority 2
+param **.node1.app[4].vid 7
+param **.node1.app[5].typename "\"IEEE8021QTrafficSourceApp\""
+param **.node1.app[5].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[5].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[5].sendInterval 500us
+param **.node1.app[5].priority 1
+param **.node1.app[5].vid 7
+param **.node1.app[6].typename "\"BGTrafficSourceApp\""
+param **.node1.app[6].destAddress "\"0A-00-00-00-00-02\""
+param **.node1.app[6].payload "intWithUnit(uniform(1500Byte, 1500Byte))"
+param **.node1.app[6].sendInterval 5us
+param **.node1.phy[*].taggedVIDs "\"7\""
+param **.node2.phy[*].mac.address "\"0A-00-00-00-00-02\""
+param **.node2.numApps 2
+param **.node2.app[0].typename "\"BGTrafficSinkApp\""
+param **.node2.app[0].srcAddress "\"0A-00-00-00-00-01\""
+param **.node2.app[1].typename "\"IEEE8021QTrafficSinkApp\""
+param **.node2.app[1].srcAddress "\"0A-00-00-00-00-01\""
+param **.node2.bgIn.destination_gates "\"app[0].in, app[1].in\""
+param **.switch1.phy[0].taggedVIDs "\"0,1,2,3,4,5,6,7\""
+param **.switch1.phy[1].untaggedVID 7
+param **.switch1.phy[1].taggedVIDs "\"0,1,2,3,4,5,6,7\""
+param **.switch1.phy[*].shaper.transmissionSelectionAlgorithm[6].typename "\"CreditBasedShaper\""
+param **.switch1.phy[*].shaper.transmissionSelectionAlgorithm[6].srClass "\"B\""
+param **.switch1.phy[*].shaper.gateControlList.controlList "\"o,o,o,o,o,C,C,o:0;o,o,C,C,C,C,C,o:0.002;C,C,C,C,C,o,o,o:0.003;o,C,C,C,C,C,C,o:0.004\""
+
+vector 0 small_network.node1.ethg$o.channel busy:vector ETV
+attr interpolationmode sample-hold
+attr source channelBusy
+vector 1 small_network.node2.ethg$o.channel busy:vector ETV
+attr interpolationmode sample-hold
+attr source channelBusy
+vector 2 small_network.switch1.ethg$o[0].channel busy:vector ETV
+attr interpolationmode sample-hold
+attr source channelBusy
+vector 3 small_network.switch1.ethg$o[1].channel busy:vector ETV
+attr interpolationmode sample-hold
+attr source channelBusy
+vector 4 small_network.node1.phy[0].shaper.transmissionSelection qPcp0Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 5 small_network.node1.phy[0].shaper.transmissionSelection qPcp0Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 6 small_network.node1.phy[0].shaper.transmissionSelection qPcp0Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 7 small_network.node1.phy[0].shaper.transmissionSelection qPcp1Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 8 small_network.node1.phy[0].shaper.transmissionSelection qPcp1Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 9 small_network.node1.phy[0].shaper.transmissionSelection qPcp1Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 10 small_network.node1.phy[0].shaper.transmissionSelection qPcp2Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 11 small_network.node1.phy[0].shaper.transmissionSelection qPcp2Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 12 small_network.node1.phy[0].shaper.transmissionSelection qPcp2Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 13 small_network.node1.phy[0].shaper.transmissionSelection qPcp3Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 14 small_network.node1.phy[0].shaper.transmissionSelection qPcp3Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 15 small_network.node1.phy[0].shaper.transmissionSelection qPcp3Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 16 small_network.node1.phy[0].shaper.transmissionSelection qPcp4Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 17 small_network.node1.phy[0].shaper.transmissionSelection qPcp4Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 18 small_network.node1.phy[0].shaper.transmissionSelection qPcp4Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 19 small_network.node1.phy[0].shaper.transmissionSelection qPcp5Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 20 small_network.node1.phy[0].shaper.transmissionSelection qPcp5Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 21 small_network.node1.phy[0].shaper.transmissionSelection qPcp5Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 22 small_network.node1.phy[0].shaper.transmissionSelection qPcp6Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 23 small_network.node1.phy[0].shaper.transmissionSelection qPcp6Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 24 small_network.node1.phy[0].shaper.transmissionSelection qPcp6Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 25 small_network.node1.phy[0].shaper.transmissionSelection qPcp7Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 26 small_network.node1.phy[0].shaper.transmissionSelection qPcp7Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 27 small_network.node1.phy[0].shaper.transmissionSelection qPcp7Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 28 small_network.node2.phy[0].shaper.transmissionSelection qPcp0Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 29 small_network.node2.phy[0].shaper.transmissionSelection qPcp0Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 30 small_network.node2.phy[0].shaper.transmissionSelection qPcp0Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 31 small_network.node2.phy[0].shaper.transmissionSelection qPcp1Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 32 small_network.node2.phy[0].shaper.transmissionSelection qPcp1Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 33 small_network.node2.phy[0].shaper.transmissionSelection qPcp1Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 34 small_network.node2.phy[0].shaper.transmissionSelection qPcp2Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 35 small_network.node2.phy[0].shaper.transmissionSelection qPcp2Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 36 small_network.node2.phy[0].shaper.transmissionSelection qPcp2Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 37 small_network.node2.phy[0].shaper.transmissionSelection qPcp3Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 38 small_network.node2.phy[0].shaper.transmissionSelection qPcp3Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 39 small_network.node2.phy[0].shaper.transmissionSelection qPcp3Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 40 small_network.node2.phy[0].shaper.transmissionSelection qPcp4Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 41 small_network.node2.phy[0].shaper.transmissionSelection qPcp4Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 42 small_network.node2.phy[0].shaper.transmissionSelection qPcp4Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 43 small_network.node2.phy[0].shaper.transmissionSelection qPcp5Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 44 small_network.node2.phy[0].shaper.transmissionSelection qPcp5Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 45 small_network.node2.phy[0].shaper.transmissionSelection qPcp5Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 46 small_network.node2.phy[0].shaper.transmissionSelection qPcp6Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 47 small_network.node2.phy[0].shaper.transmissionSelection qPcp6Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 48 small_network.node2.phy[0].shaper.transmissionSelection qPcp6Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 49 small_network.node2.phy[0].shaper.transmissionSelection qPcp7Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 50 small_network.node2.phy[0].shaper.transmissionSelection qPcp7Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 51 small_network.node2.phy[0].shaper.transmissionSelection qPcp7Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 52 small_network.switch1.phy[0].shaper.transmissionSelection qPcp0Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 53 small_network.switch1.phy[0].shaper.transmissionSelection qPcp0Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 54 small_network.switch1.phy[0].shaper.transmissionSelection qPcp0Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 55 small_network.switch1.phy[0].shaper.transmissionSelection qPcp1Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 56 small_network.switch1.phy[0].shaper.transmissionSelection qPcp1Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 57 small_network.switch1.phy[0].shaper.transmissionSelection qPcp1Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 58 small_network.switch1.phy[0].shaper.transmissionSelection qPcp2Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 59 small_network.switch1.phy[0].shaper.transmissionSelection qPcp2Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 60 small_network.switch1.phy[0].shaper.transmissionSelection qPcp2Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 61 small_network.switch1.phy[0].shaper.transmissionSelection qPcp3Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 62 small_network.switch1.phy[0].shaper.transmissionSelection qPcp3Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 63 small_network.switch1.phy[0].shaper.transmissionSelection qPcp3Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 64 small_network.switch1.phy[0].shaper.transmissionSelection qPcp4Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 65 small_network.switch1.phy[0].shaper.transmissionSelection qPcp4Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 66 small_network.switch1.phy[0].shaper.transmissionSelection qPcp4Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 67 small_network.switch1.phy[0].shaper.transmissionSelection qPcp5Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 68 small_network.switch1.phy[0].shaper.transmissionSelection qPcp5Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 69 small_network.switch1.phy[0].shaper.transmissionSelection qPcp5Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 70 small_network.switch1.phy[0].shaper.transmissionSelection qPcp6Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 71 small_network.switch1.phy[0].shaper.transmissionSelection qPcp6Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 72 small_network.switch1.phy[0].shaper.transmissionSelection qPcp6Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 73 small_network.switch1.phy[0].shaper.transmissionSelection qPcp7Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 74 small_network.switch1.phy[0].shaper.transmissionSelection qPcp7Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 75 small_network.switch1.phy[0].shaper.transmissionSelection qPcp7Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 76 small_network.switch1.phy[1].shaper.transmissionSelection qPcp0Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 77 small_network.switch1.phy[1].shaper.transmissionSelection qPcp0Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 78 small_network.switch1.phy[1].shaper.transmissionSelection qPcp0Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 79 small_network.switch1.phy[1].shaper.transmissionSelection qPcp1Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 80 small_network.switch1.phy[1].shaper.transmissionSelection qPcp1Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 81 small_network.switch1.phy[1].shaper.transmissionSelection qPcp1Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 82 small_network.switch1.phy[1].shaper.transmissionSelection qPcp2Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 83 small_network.switch1.phy[1].shaper.transmissionSelection qPcp2Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 84 small_network.switch1.phy[1].shaper.transmissionSelection qPcp2Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 85 small_network.switch1.phy[1].shaper.transmissionSelection qPcp3Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 86 small_network.switch1.phy[1].shaper.transmissionSelection qPcp3Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 87 small_network.switch1.phy[1].shaper.transmissionSelection qPcp3Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 88 small_network.switch1.phy[1].shaper.transmissionSelection qPcp4Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 89 small_network.switch1.phy[1].shaper.transmissionSelection qPcp4Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 90 small_network.switch1.phy[1].shaper.transmissionSelection qPcp4Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 91 small_network.switch1.phy[1].shaper.transmissionSelection qPcp5Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 92 small_network.switch1.phy[1].shaper.transmissionSelection qPcp5Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 93 small_network.switch1.phy[1].shaper.transmissionSelection qPcp5Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 94 small_network.switch1.phy[1].shaper.transmissionSelection qPcp6Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 95 small_network.switch1.phy[1].shaper.transmissionSelection qPcp6Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 96 small_network.switch1.phy[1].shaper.transmissionSelection qPcp6Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 97 small_network.switch1.phy[1].shaper.transmissionSelection qPcp7Bytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 98 small_network.switch1.phy[1].shaper.transmissionSelection qPcp7Bytes:floatingIntervalSumVector(packetBytes) ETV
+vector 99 small_network.switch1.phy[1].shaper.transmissionSelection qPcp7Latency:vector ETV
+attr interpolationmode none
+attr title "End-to-end latency, vector"
+attr unit s
+vector 100 small_network.node1.app[0] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 101 small_network.node1.app[1] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 102 small_network.node1.app[2] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 103 small_network.node1.app[3] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 104 small_network.node1.app[4] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 105 small_network.node1.app[5] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 106 small_network.node1.app[6] payloadOverTime:vector ETV
+attr interpolationmode linear
+attr source payloadSignal
+attr title "payload over time, vector"
+attr unit B
+vector 107 small_network.node1.app[6] sendIntervalOverTime:vector ETV
+attr interpolationmode linear
+attr source intervalSignal
+attr title "send interval over time, vector"
+attr unit s
+vector 108 small_network.node1.bgOut rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 109 small_network.node1.bgOut rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 110 small_network.node1.bgOut length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 111 small_network.node1.bgOut size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 112 small_network.node1.bgOut txBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "Transmitted Bytes, vector(packetBytes)"
+attr unit B
+vector 113 small_network.node1.bgOut txLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(txPk)
+attr title "End-to-end latency (transmitted), vector"
+attr unit s
+vector 114 small_network.node1.phy[0].shaper.queue[0] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 115 small_network.node1.phy[0].shaper.queue[0] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 116 small_network.node1.phy[0].shaper.queue[0] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 117 small_network.node1.phy[0].shaper.queue[0] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 118 small_network.node1.phy[0].mac rxPkFromHL:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 119 small_network.node1.phy[0].shaper.queue[7] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 120 small_network.node1.phy[0].shaper.queue[7] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 121 small_network.node1.phy[0].shaper.queue[7] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 122 small_network.node1.phy[0].shaper.queue[7] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 123 small_network.node1.phy[0].shaper.queue[5] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 124 small_network.node1.phy[0].shaper.queue[5] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 125 small_network.node1.phy[0].shaper.queue[5] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 126 small_network.node1.phy[0].shaper.queue[5] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 127 small_network.node1.phy[0].shaper.queue[4] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 128 small_network.node1.phy[0].shaper.queue[4] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 129 small_network.node1.phy[0].shaper.queue[4] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 130 small_network.node1.phy[0].shaper.queue[4] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 131 small_network.node1.phy[0].shaper.queue[3] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 132 small_network.node1.phy[0].shaper.queue[3] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 133 small_network.node1.phy[0].shaper.queue[3] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 134 small_network.node1.phy[0].shaper.queue[3] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 135 small_network.node1.phy[0].shaper.queue[2] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 136 small_network.node1.phy[0].shaper.queue[2] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 137 small_network.node1.phy[0].shaper.queue[2] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 138 small_network.node1.phy[0].shaper.queue[2] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 139 small_network.node1.phy[0].shaper.queue[1] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 140 small_network.node1.phy[0].shaper.queue[1] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 141 small_network.node1.phy[0].shaper.queue[1] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 142 small_network.node1.phy[0].shaper.queue[1] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 143 small_network.node1.phy[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, vector(packetBytes)"
+vector 144 small_network.switch1.phy[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 145 small_network.switch1.phy[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 146 small_network.switch1.phy[0].inControl rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 147 small_network.switch1.phy[0].inControl bandwidthFloating:floatingIntervalSumVector(packetBytes) ETV
+vector 148 small_network.switch1.phy[1].shaper.queue[0] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 149 small_network.switch1.phy[1].shaper.queue[0] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 150 small_network.switch1.phy[1].shaper.queue[0] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 151 small_network.switch1.phy[1].shaper.queue[0] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 152 small_network.switch1.phy[1].mac rxPkFromHL:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 153 small_network.switch1.phy[1].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, vector(packetBytes)"
+vector 154 small_network.node2.phy[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 155 small_network.node2.phy[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 156 small_network.node2.phy[0].inControl rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 157 small_network.node2.phy[0].inControl bandwidthFloating:floatingIntervalSumVector(packetBytes) ETV
+vector 158 small_network.node2.bgIn rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 159 small_network.node2.bgIn rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 160 small_network.node2.bgIn length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 161 small_network.node2.bgIn size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 162 small_network.node2.bgIn txBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "Transmitted Bytes, vector(packetBytes)"
+attr unit B
+vector 163 small_network.node2.bgIn txLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(txPk)
+attr title "End-to-end latency (transmitted), vector"
+attr unit s
+vector 164 small_network.node2.app[0] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 165 small_network.node2.app[0] rxBytes:floatingIntervalSumVector(packetBytes) ETV
+vector 166 small_network.node2.app[0] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency, vector"
+attr unit s
+vector 167 small_network.node2.app[0] rxLatencyInner:vector ETV
+attr interpolationmode none
+attr source messageAge(innerMessage(rxPk))
+attr title "End-to-end latency inner, vector"
+attr unit s
+vector 168 small_network.node2.app[1] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 169 small_network.node2.app[1] rxBytes:floatingIntervalSumVector(packetBytes) ETV
+vector 170 small_network.node2.app[1] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency, vector"
+attr unit s
+vector 171 small_network.node2.app[1] rxLatencyInner:vector ETV
+attr interpolationmode none
+attr source messageAge(innerMessage(rxPk))
+attr title "End-to-end latency inner, vector"
+attr unit s
+vector 172 small_network.node2.bgOut rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 173 small_network.node2.bgOut rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 174 small_network.node2.bgOut length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 175 small_network.node2.bgOut size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 176 small_network.node2.bgOut txBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "Transmitted Bytes, vector(packetBytes)"
+attr unit B
+vector 177 small_network.node2.bgOut txLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(txPk)
+attr title "End-to-end latency (transmitted), vector"
+attr unit s
+vector 178 small_network.node2.phy[0].shaper.queue[0] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 179 small_network.node2.phy[0].shaper.queue[0] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 180 small_network.node2.phy[0].shaper.queue[0] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 181 small_network.node2.phy[0].shaper.queue[0] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 182 small_network.node2.phy[0].mac rxPkFromHL:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 183 small_network.switch1.phy[1].shaper.transmissionSelectionAlgorithm[6] credit:vector ETV
+attr "" ""
+attr interpolationmode linear
+attr source credit
+attr title "Credit, vector"
+attr unit b
+vector 184 small_network.switch1.phy[1].shaper.queue[7] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 185 small_network.switch1.phy[1].shaper.queue[7] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 186 small_network.switch1.phy[1].shaper.queue[7] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 187 small_network.switch1.phy[1].shaper.queue[7] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 188 small_network.node2.phy[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, vector(packetBytes)"
+vector 189 small_network.switch1.phy[1].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 190 small_network.switch1.phy[1].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 191 small_network.switch1.phy[1].inControl rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 192 small_network.switch1.phy[1].inControl bandwidthFloating:floatingIntervalSumVector(packetBytes) ETV
+vector 193 small_network.switch1.phy[0].shaper.queue[0] rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 194 small_network.switch1.phy[0].shaper.queue[0] rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 195 small_network.switch1.phy[0].shaper.queue[0] length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 196 small_network.switch1.phy[0].shaper.queue[0] size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 197 small_network.node2.app[1] rxBytesQ7:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkQ7
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 198 small_network.node2.app[1] rxBytesQ7:floatingIntervalSumVector(packetBytes) ETV
+vector 199 small_network.node2.app[1] rxLatencyQ7:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPkQ7)
+attr title "End-to-end latency, vector"
+attr unit s
+vector 200 small_network.node2.app[1] rxLatencyInnerQ7:vector ETV
+attr interpolationmode none
+attr source messageAge(innerMessage(rxPkQ7))
+attr title "End-to-end latency inner, vector"
+attr unit s
+vector 201 small_network.switch1.phy[0].mac rxPkFromHL:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkFromHL
+attr title "packet bytes from higher layer, vector(packetBytes)"
+vector 202 small_network.node1.scheduler.period[0] newCycle:vector ETV
+attr interpolationmode none
+attr title "Start of cycle, vector"
+vector 203 small_network.node1.scheduler.oscillator currentDrift:vector ETV
+attr title "Current drift, vector"
+attr unit s
+vector 204 small_network.node1.scheduler.timer clockCorrection:vector ETV
+attr title "Clock correction, vector"
+attr unit tick
+vector 205 small_network.node2.scheduler.period[0] newCycle:vector ETV
+attr interpolationmode none
+attr title "Start of cycle, vector"
+vector 206 small_network.node2.scheduler.oscillator currentDrift:vector ETV
+attr title "Current drift, vector"
+attr unit s
+vector 207 small_network.node2.scheduler.timer clockCorrection:vector ETV
+attr title "Clock correction, vector"
+attr unit tick
+vector 208 small_network.switch1.scheduler.period[0] newCycle:vector ETV
+attr interpolationmode none
+attr title "Start of cycle, vector"
+vector 209 small_network.switch1.scheduler.oscillator currentDrift:vector ETV
+attr title "Current drift, vector"
+attr unit s
+vector 210 small_network.switch1.scheduler.timer clockCorrection:vector ETV
+attr title "Clock correction, vector"
+attr unit tick
+vector 211 small_network.switch1.phy[0].mac txPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source txPk
+attr title "packets transmitted, vector(packetBytes)"
+vector 212 small_network.node1.phy[0].mac rxPkOk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPkOk
+attr title "packets received OK, vector(packetBytes)"
+vector 213 small_network.node1.phy[0].mac passedUpPk:vector(packetBytes) ETV
+attr interpolationmode none
+attr source packetSentToUpper
+attr title "packets passed to higher layer, vector(packetBytes)"
+vector 214 small_network.node1.phy[0].inControl rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 215 small_network.node1.phy[0].inControl bandwidthFloating:floatingIntervalSumVector(packetBytes) ETV
+vector 216 small_network.node1.bgIn rxBytes:vector(packetBytes) ETV
+attr interpolationmode none
+attr source rxPk
+attr title "Received Bytes, vector(packetBytes)"
+attr unit B
+vector 217 small_network.node1.bgIn rxLatency:vector ETV
+attr interpolationmode none
+attr source messageAge(rxPk)
+attr title "End-to-end latency (received), vector"
+attr unit s
+vector 218 small_network.node1.bgIn length:vector ETV
+attr interpolationmode sample-hold
+attr source length
+attr title "Queue Length, vector"
+attr unit packets
+vector 219 small_network.node1.bgIn size:vector ETV
+attr interpolationmode sample-hold
+attr source size
+attr title "Queue Size, vector"
+attr unit B
+vector 220 small_network.switch1.phy[0].shaper.transmissionSelectionAlgorithm[6] credit:vector ETV
+attr "" ""
+attr interpolationmode linear
+attr source credit
+attr title "Credit, vector"
+attr unit b
+110	40374 661848 44 83515 0 0.077265 32768 0 1 16384 16384
+111	702222 711000 44 83515 0 0.077265 32768 0 1522 24874632 37765353216
+108	1413222 775479 44 166983 0 0.154535 32768 1518 1522 49749264 75530706432
+109	2188701 677175 44 166983 0 0.154535 32768 0 0 0 0
+110	2865876 692502 83520 166983 0.07727 0.154535 32768 0 1 16384 16384
+111	3558378 741654 83520 166983 0.07727 0.154535 32768 0 1522 24874632 37765353216
+112	4300032 775479 44 166983 0 0.154535 32768 1518 1522 49749264 75530706432
+113	5075511 677175 44 166983 0 0.154535 32768 0 0 0 0
+116	5752686 802109 47 176997 0 0.16383 32768 0 32766 536821762 11726513487872
+117	6554795 904200 47 176997 0 0.16383 32768 0 49738788 814895434716 2.7021686466428e+19
+106	7458995 780461 8 176998 0 0.163835 32768 1500 1500 49152000 73728000000
+107	8239456 813229 8 176998 0 0.163835 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	9052685 780466 47 177002 0 0.163835 32768 1518 1518 49741824 75508088832
+115	9833151 682162 47 177002 0 0.163835 32768 0 0 0 0
+110	10515313 698990 166988 250440 0.15454 0.231835 32768 0 1 16384 16384
+111	11214303 748142 166988 250440 0.15454 0.231835 32768 0 1522 24874608 37765280256
+108	11962445 797285 166988 333911 0.15454 0.309105 32768 1518 1522 49749240 75530633472
+109	12759730 698981 166988 333911 0.15454 0.309105 32768 0 0 0 0
+110	13458711 698972 250445 333911 0.23184 0.309105 32768 0 1 16384 16384
+111	14157683 748124 250445 333911 0.23184 0.309105 32768 0 1522 24874632 37765353216
+112	14905807 797285 166988 333911 0.15454 0.309105 32768 1518 1522 49749240 75530633472
+113	15703092 698981 166988 333911 0.15454 0.309105 32768 0 0 0 0
+116	16402073 833764 177002 353960 0.163835 0.32767 32768 32767 65534 1610563584 82092036440064
+117	17235837 932068 177002 353960 0.163835 0.32767 32768 49740306 99480612 2444835520512 1.8916664977772e+20
+106	18167905 800996 177003 353961 0.16384 0.327675 32768 1500 1500 49152000 73728000000
+107	18968901 833764 177003 353961 0.16384 0.327675 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	19802665 800996 177007 353965 0.16384 0.327675 32768 1518 1518 49741824 75508088832
+115	20603661 702692 177007 353965 0.16384 0.327675 32768 0 0 0 0
+110	21306353 699004 333916 417387 0.30911 0.386405 32768 0 1 16384 16384
+111	22005357 748156 333916 417387 0.30911 0.386405 32768 0 1522 24874608 37765280256
+108	22753513 797293 333916 500836 0.30911 0.463675 32768 1518 1522 49749240 75530633472
+109	23550806 698989 333916 500836 0.30911 0.463675 32768 0 0 0 0
+110	24249795 698974 417392 500836 0.38641 0.463675 32768 0 1 16384 16384
+111	24948769 748126 417392 500836 0.38641 0.463675 32768 0 1522 24874632 37765353216
+112	25696895 797293 333916 500836 0.30911 0.463675 32768 1518 1522 49749240 75530633472
+113	26494188 698989 333916 500836 0.30911 0.463675 32768 0 0 0 0
+116	27193177 833763 353965 530923 0.327675 0.49151 32768 65535 98302 2684305408 2.2282630356992e+14
+117	28026940 964493 353965 530923 0.327675 0.49151 32768 99482130 149222436 4074775609344 5.1346399914746e+20
+106	28991433 800995 353966 530924 0.32768 0.491515 32768 1500 1500 49152000 73728000000
+107	29792428 833763 353966 530924 0.32768 0.491515 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	30626191 800995 353970 530928 0.32768 0.491515 32768 1518 1518 49741824 75508088832
+115	31427186 702691 353970 530928 0.32768 0.491515 32768 0 0 0 0
+110	32129877 698990 500841 584315 0.46368 0.540975 32768 0 1 16384 16384
+111	32828867 748142 500841 584315 0.46368 0.540975 32768 0 1522 24874608 37765280256
+108	33577009 797285 500841 667783 0.46368 0.618245 32768 1518 1522 49749240 75530633472
+109	34374294 698981 500841 667783 0.46368 0.618245 32768 0 0 0 0
+110	35073275 698972 584320 667783 0.54098 0.618245 32768 0 1 16384 16384
+111	35772247 748124 584320 667783 0.54098 0.618245 32768 0 1522 24874632 37765353216
+112	36520371 797285 500841 667783 0.46368 0.618245 32768 1518 1522 49749240 75530633472
+113	37317656 698981 500841 667783 0.46368 0.618245 32768 0 0 0 0
+116	38016637 864835 530928 707859 0.491515 0.65535 32768 98303 131070 3758047232 4.3392931487744e+14
+117	38881472 964836 530928 707859 0.491515 0.65535 32768 149223954 198964260 5704715698176 9.9991373457565e+20
+106	39846308 800996 530929 707860 0.49152 0.655355 32768 1500 1500 49152000 73728000000
+107	40647304 833764 530929 707860 0.49152 0.655355 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	41481068 800996 530933 707864 0.49152 0.655355 32768 1518 1518 49741824 75508088832
+115	42282064 702692 530933 707864 0.49152 0.655355 32768 0 0 0 0
+110	42984756 698986 667788 751243 0.61825 0.695515 32768 0 1 16384 16384
+111	43683742 748138 667788 751243 0.61825 0.695515 32768 0 1522 24874632 37765353216
+108	44431880 797292 667788 834708 0.61825 0.772815 32768 1518 1522 49749240 75530633472
+109	45229172 698988 667788 834708 0.61825 0.772815 32768 0 0 0 0
+110	45928160 698990 751248 834708 0.69552 0.772815 32768 0 1 16384 16384
+111	46627150 748142 751248 834708 0.69552 0.772815 32768 0 1522 24874608 37765280256
+112	47375292 797292 667788 834708 0.61825 0.772815 32768 1518 1522 49749240 75530633472
+113	48172584 698988 667788 834708 0.61825 0.772815 32768 0 0 0 0
+116	48871572 866532 707864 884811 0.655355 0.81919 32768 131071 163838 4831789056 7.1540107036262e+14
+117	49738104 964836 707864 884811 0.655355 0.81919 32768 198965778 248706084 7334655787008 1.6485158560623e+21
+106	50702940 800996 707865 884812 0.65536 0.819195 32768 1500 1500 49152000 73728000000
+107	51503936 833764 707865 884812 0.65536 0.819195 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	52337700 800996 707869 884816 0.65536 0.819195 32768 1518 1518 49741824 75508088832
+115	53138696 702692 707869 884816 0.65536 0.819195 32768 0 0 0 0
+110	53841388 698960 834713 918190 0.77282 0.850085 32768 0 1 16384 16384
+111	54540348 748112 834713 918190 0.77282 0.850085 32768 0 1522 24874632 37765353216
+108	55288460 797609 834713 1001636 0.77282 0.927385 32768 1518 1522 49749240 75530633472
+109	56086069 699305 834713 1001636 0.77282 0.927385 32768 0 0 0 0
+110	56785374 699650 918195 1001636 0.85009 0.927385 32768 0 1 16384 16384
+111	57485024 748802 918195 1001636 0.85009 0.927385 32768 0 1522 24874608 37765280256
+112	58233826 797609 834713 1001636 0.77282 0.927385 32768 1518 1522 49749240 75530633472
+113	59031435 699305 834713 1001636 0.77282 0.927385 32768 0 0 0 0
+116	59730740 877966 884816 1061755 0.819195 0.98303 32768 163839 196606 5905530880 1.0672415700255e+15
+117	60608706 976270 884816 1061755 0.819195 0.98303 32768 248707602 298447908 8964595875840 2.4592703636074e+21
+106	61584976 812430 884817 1061756 0.8192 0.983035 32768 1500 1500 49152000 73728000000
+107	62397406 845198 884817 1061756 0.8192 0.983035 32768 5e-06 5e-06 0.16384000000009 8.1919999999933e-07
+114	63242604 812431 884821 1061760 0.8192 0.983035 32768 1518 1518 49741824 75508088832
+115	64055035 714127 884821 1061760 0.8192 0.983035 32768 0 0 0 0
+vector 221 small_network.node1.bgOut maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 222 small_network.node1.bgOut minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 223 small_network.node1.bgOut bandwidth:IntervalSumVector(packetBytes) ETV
+vector 224 small_network.node1.phy[0].shaper.queue[0] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 225 small_network.node1.phy[0].shaper.queue[0] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 226 small_network.node1.phy[0].shaper.queue[0] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 227 small_network.node1.phy[0].shaper.queue[7] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 228 small_network.node1.phy[0].shaper.queue[7] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 229 small_network.node1.phy[0].shaper.queue[7] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 230 small_network.node1.phy[0].shaper.queue[5] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 231 small_network.node1.phy[0].shaper.queue[5] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 232 small_network.node1.phy[0].shaper.queue[5] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 233 small_network.node1.phy[0].shaper.queue[4] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 234 small_network.node1.phy[0].shaper.queue[4] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 235 small_network.node1.phy[0].shaper.queue[4] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 236 small_network.node1.phy[0].shaper.queue[3] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 237 small_network.node1.phy[0].shaper.queue[3] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 238 small_network.node1.phy[0].shaper.queue[3] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 239 small_network.node1.phy[0].shaper.queue[2] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 240 small_network.node1.phy[0].shaper.queue[2] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 241 small_network.node1.phy[0].shaper.queue[2] bandwidth:IntervalSumVector(packetBytes) ETV
+vector 242 small_network.node1.phy[0].shaper.queue[1] maxPacketSize:IntervalMaxVector(packetBytes) ETV
+vector 243 small_network.node1.phy[0].shaper.queue[1] minPacketSize:IntervalMinVector(packetBytes) ETV
+vector 244 small_network.node1.phy[0].shaper.queue[1] bandwidth:IntervalSumVector(packetBytes) ETV
+0	64771551 33611 0 1080084 0 1.0004368 1623 0 1 811 811
+1	64805162 95 0 1080084 0 0.004900805 5 0 1 2 2
+2	64805257 83 0 1080084 0 0.0064512 5 0 1 2 2
+3	64805340 38849 0 1080084 0 1.0004352025 1621 0 1 810 810
+4	64844189 20 0 48 0 0 2 0 1518 1518 2304324
+5	64844209 17 0 48 0 0 2 0 0 0 0
+6	64844226 17 0 48 0 0 2 0 0 0 0
+7	64844243 8 0 0 0 0 1 0 0 0 0
+8	64844251 8 0 0 0 0 1 0 0 0 0
+9	64844259 8 0 0 0 0 1 0 0 0 0
+10	64844267 9 0 0 0 0 1 0 0 0 0
+11	64844276 9 0 0 0 0 1 0 0 0 0
+12	64844285 9 0 0 0 0 1 0 0 0 0
+13	64844294 9 0 0 0 0 1 0 0 0 0
+14	64844303 9 0 0 0 0 1 0 0 0 0
+15	64844312 9 0 0 0 0 1 0 0 0 0
+16	64844321 9 0 0 0 0 1 0 0 0 0
+17	64844330 9 0 0 0 0 1 0 0 0 0
+18	64844339 9 0 0 0 0 1 0 0 0 0
+19	64844348 9 0 0 0 0 1 0 0 0 0
+20	64844357 9 0 0 0 0 1 0 0 0 0
+21	64844366 9 0 0 0 0 1 0 0 0 0
+22	64844375 9 0 0 0 0 1 0 0 0 0
+23	64844384 9 0 0 0 0 1 0 0 0 0
+24	64844393 9 0 0 0 0 1 0 0 0 0
+25	64844402 20034 0 1079232 0 0.9992128 811 0 1522 1232820 1876352040
+26	64864436 21736 0 1079232 0 0.9992128 811 0 1232820 499908510 4.1111842644954e+14
+27	64886172 23882 0 1079232 0 0.9992128 811 0 0.5947128 241.356996 95.751248132189
+28	64910054 59 0 4017 0 0.003680005 3 0 1518 3036 4608648
+29	64910113 59 0 4017 0 0.003680005 3 0 3036 4554 11521620
+30	64910172 61 0 4017 0 0.003680005 3 0 0.0012304 0.0012304 1.51388416e-06
+31	64910233 9 0 0 0 0 1 0 0 0 0
+32	64910242 9 0 0 0 0 1 0 0 0 0
+33	64910251 9 0 0 0 0 1 0 0 0 0
+34	64910260 9 0 0 0 0 1 0 0 0 0
+35	64910269 9 0 0 0 0 1 0 0 0 0
+36	64910278 9 0 0 0 0 1 0 0 0 0
+37	64910287 9 0 0 0 0 1 0 0 0 0
+38	64910296 9 0 0 0 0 1 0 0 0 0
+39	64910305 9 0 0 0 0 1 0 0 0 0
+40	64910314 9 0 0 0 0 1 0 0 0 0
+41	64910323 9 0 0 0 0 1 0 0 0 0
+42	64910332 9 0 0 0 0 1 0 0 0 0
+43	64910341 9 0 0 0 0 1 0 0 0 0
+44	64910350 9 0 0 0 0 1 0 0 0 0
+45	64910359 9 0 0 0 0 1 0 0 0 0
+46	64910368 9 0 0 0 0 1 0 0 0 0
+47	64910377 9 0 0 0 0 1 0 0 0 0
+48	64910386 9 0 0 0 0 1 0 0 0 0
+49	64910395 9 0 0 0 0 1 0 0 0 0
+50	64910404 9 0 0 0 0 1 0 0 0 0
+51	64910413 9 0 0 0 0 1 0 0 0 0
+52	64910422 51 0 5729 0 0.0052304 3 0 1518 3036 4608648
+53	64910473 51 0 5729 0 0.0052304 3 0 3036 4554 11521620
+54	64910524 65 0 5729 0 0.0052304 3 0 0.002780795 0.00433119 1.013654548805e-05
+55	64910589 9 0 0 0 0 1 0 0 0 0
+56	64910598 9 0 0 0 0 1 0 0 0 0
+57	64910607 9 0 0 0 0 1 0 0 0 0
+58	64910616 9 0 0 0 0 1 0 0 0 0
+59	64910625 9 0 0 0 0 1 0 0 0 0
+60	64910634 9 0 0 0 0 1 0 0 0 0
+61	64910643 9 0 0 0 0 1 0 0 0 0
+62	64910652 9 0 0 0 0 1 0 0 0 0
+63	64910661 9 0 0 0 0 1 0 0 0 0
+64	64910670 9 0 0 0 0 1 0 0 0 0
+65	64910679 9 0 0 0 0 1 0 0 0 0
+66	64910688 9 0 0 0 0 1 0 0 0 0
+67	64910697 9 0 0 0 0 1 0 0 0 0
+68	64910706 9 0 0 0 0 1 0 0 0 0
+69	64910715 9 0 0 0 0 1 0 0 0 0
+70	64910724 9 0 0 0 0 1 0 0 0 0
+71	64910733 9 0 0 0 0 1 0 0 0 0
+72	64910742 9 0 0 0 0 1 0 0 0 0
+73	64910751 9 0 0 0 0 1 0 0 0 0
+74	64910760 9 0 0 0 0 1 0 0 0 0
+75	64910769 9 0 0 0 0 1 0 0 0 0
+76	64910778 35 0 1365 0 0.0012288025 2 0 1518 1518 2304324
+77	64910813 35 0 1365 0 0.0012288025 2 0 1518 1518 2304324
+78	64910848 43 0 1365 0 0.0012288025 2 0 0.0012288025 0.0012288025 1.5099555840062e-06
+79	64910891 9 0 0 0 0 1 0 0 0 0
+80	64910900 9 0 0 0 0 1 0 0 0 0
+81	64910909 9 0 0 0 0 1 0 0 0 0
+82	64910918 9 0 0 0 0 1 0 0 0 0
+83	64910927 9 0 0 0 0 1 0 0 0 0
+84	64910936 9 0 0 0 0 1 0 0 0 0
+85	64910945 9 0 0 0 0 1 0 0 0 0
+86	64910954 9 0 0 0 0 1 0 0 0 0
+87	64910963 9 0 0 0 0 1 0 0 0 0
+88	64910972 9 0 0 0 0 1 0 0 0 0
+89	64910981 9 0 0 0 0 1 0 0 0 0
+90	64910990 9 0 0 0 0 1 0 0 0 0
+91	64910999 9 0 0 0 0 1 0 0 0 0
+92	64911008 9 0 0 0 0 1 0 0 0 0
+93	64911017 9 0 0 0 0 1 0 0 0 0
+94	64911026 9 0 0 0 0 1 0 0 0 0
+95	64911035 9 0 0 0 0 1 0 0 0 0
+96	64911044 9 0 0 0 0 1 0 0 0 0
+97	64911053 22642 0 1079229 0 0.9992112025 810 0 1522 1231298 1874035556
+98	64933695 24341 0 1079229 0 0.9992112025 810 0 1231298 498675690 4.0959858129714e+14
+99	64958036 29114 0 1079229 0 0.9992112025 810 0 0.5952112025 241.7589732225 95.992032211921
+100	64987150 44846 2 1080049 0 1 2001 1500 1500 3001500 4502250000
+101	65031996 44846 3 1080050 0 1 2001 1500 1500 3001500 4502250000
+102	65076842 44846 4 1080051 0 1 2001 1500 1500 3001500 4502250000
+103	65121688 44846 5 1080052 0 1 2001 1500 1500 3001500 4502250000
+104	65166534 44846 6 1080053 0 1 2001 1500 1500 3001500 4502250000
+105	65211380 44846 7 1080054 0 1 2001 1500 1500 3001500 4502250000
+106	65256226 86329 1061761 1080055 0.98304 1 3393 1500 1500 5089500 7634250000
+107	65342555 89722 1061761 1080055 0.98304 1 3393 5e-06 5e-06 0.016965 8.4825000000003e-08
+108	65432277 390045 1001641 1080080 0.92739 1 15399 1518 1522 23379186 35494937436
+109	65822322 343848 1001641 1080080 0.92739 1 15399 0 0 0 0
+110	66166170 687696 1001641 1080080 0.92739 1 30798 0 1 15399 15399
+111	66853866 733893 1001641 1080080 0.92739 1 30798 0 1522 23379186 35494937436
+112	67587759 390045 1001641 1080080 0.92739 1 15399 1518 1522 23379186 35494937436
+113	67977804 343848 1001641 1080080 0.92739 1 15399 0 0 0 0
+114	68321652 86329 1061765 1080059 0.98304 1 3393 1518 1518 5150574 7818571332
+115	68407981 76150 1061765 1080059 0.98304 1 3393 0 0 0 0
+116	68484131 93143 1061760 1080059 0.983035 1 3394 196607 200000 673042079 1.3346985793661e+14
+117	68577274 103325 1061760 1080059 0.983035 1 3394 298449426 303600000 1021677875922 3.0755779691992e+20
+118	68680599 20849 49 1079233 0 0.9992128 811 1518 1522 1234338 1878656364
+119	68701448 44847 53 1080063 0 1 2001 1522 1522 3045522 4635284484
+120	68746295 38844 53 1080063 0 1 2001 0 0 0 0
+121	68785139 63071 53 1080063 0 1 2811 1 1191 1675264 1329857550
+122	68848210 72399 53 1080063 0 1 2811 1522 1812702 2549751808 3.0805937368542e+15
+123	68920609 44847 57 1080067 0 1 2001 1522 1522 3045522 4635284484
+124	68965456 38844 57 1080067 0 1 2001 0 0 0 0
+125	69004300 43740 57 1080067 0 1 2001 1 2001 2003001 2672671001
+126	69048040 50122 57 1080067 0 1 2001 1522 3045522 3048567522 6.1911996110805e+15
+127	69098162 44847 61 1080071 0 1 2001 1522 1522 3045522 4635284484
+128	69143009 38844 61 1080071 0 1 2001 0 0 0 0
+129	69181853 43740 61 1080071 0 1 2001 1 2001 2003001 2672671001
+130	69225593 50122 61 1080071 0 1 2001 1522 3045522 3048567522 6.1911996110805e+15
+131	69275715 44847 65 1080075 0 1 2001 1522 1522 3045522 4635284484
+132	69320562 38844 65 1080075 0 1 2001 0 0 0 0
+133	69359406 43740 65 1080075 0 1 2001 1 2001 2003001 2672671001
+134	69403146 50122 65 1080075 0 1 2001 1522 3045522 3048567522 6.1911996110805e+15
+135	69453268 44847 69 1080079 0 1 2001 1522 1522 3045522 4635284484
+136	69498115 38844 69 1080079 0 1 2001 0 0 0 0
+137	69536959 43740 69 1080079 0 1 2001 1 2001 2003001 2672671001
+138	69580699 50122 69 1080079 0 1 2001 1522 3045522 3048567522 6.1911996110805e+15
+139	69630821 44847 73 1080083 0 1 2001 1522 1522 3045522 4635284484
+140	69675668 38844 73 1080083 0 1 2001 0 0 0 0
+141	69714512 43740 73 1080083 0 1 2001 1 2001 2003001 2672671001
+142	69758252 50122 73 1080083 0 1 2001 1522 3045522 3048567522 6.1911996110805e+15
+143	69808374 20836 1354 1079212 0.0012208 0.9992032 810 1518 1522 1232816 1876339880
+144	69829210 23468 1355 1079213 0.0012208025 0.9992032025 810 1518 1522 1232816 1876339880
+145	69852678 23468 1355 1079213 0.0012208025 0.9992032025 810 1518 1522 1232816 1876339880
+146	69876146 29948 1356 1079214 0.0012208025 0.9992032025 810 0.0012208025 0.5952032025 241.753722025 95.988165610484
+147	69906094 25170 1356 1079214 0.0012208025 0.9992032025 810 1518 1232816 499905270 4.1111442719442e+14
+148	69931264 27 1364 1364 0.0012288025 0.0012288025 1 1518 1518 1518 2304324
+149	69931291 35 1364 1364 0.0012288025 0.0012288025 1 0.0012288025 0.0012288025 0.0012288025 1.5099555840062e-06
+150	69931326 48 1364 1364 0.0012288025 0.0012288025 2 0 1 1 1
+151	69931374 51 1364 1364 0.0012288025 0.0012288025 2 0 1518 1518 2304324
+152	69931425 23469 1366 1079230 0.0012288025 0.9992112025 810 1518 1522 1232816 1876339880
+153	69954894 23441 2653 1079205 0.0024496025 0.9992016025 809 1518 1522 1231294 1874023396
+154	69978335 22632 2654 1079206 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+155	70000967 22632 2654 1079206 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+156	70023599 28295 2655 1079207 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+157	70051894 24331 2655 1079207 0.002449605 0.999201605 809 1518 1231294 498672454 4.0959459190456e+14
+158	70076225 22632 2657 1079209 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+159	70098857 28295 2657 1079209 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+160	70127152 40410 2657 1079209 0.002449605 0.999201605 1618 0 1 809 809
+161	70167562 42837 2657 1079209 0.002449605 0.999201605 1618 0 1522 1231294 1874023396
+162	70210399 22632 2657 1079209 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+163	70233031 28295 2657 1079209 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+164	70261326 22632 2658 1079210 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+165	70283958 24331 2658 1079210 0.002449605 0.999201605 809 1518 1231294 498672454 4.0959459190456e+14
+166	70308289 28295 2658 1079210 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+167	70336584 28295 2658 1079210 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+168	70364879 22632 2659 1079211 0.002449605 0.999201605 809 1518 1522 1231294 1874023396
+169	70387511 24331 2659 1079211 0.002449605 0.999201605 809 1518 1231294 498672454 4.0959459190456e+14
+170	70411842 28295 2659 1079211 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+171	70440137 28295 2659 1079211 0.002449605 0.999201605 809 0.002449605 0.595701605 242.155205645 96.2293424633
+172	70468432 52 2660 2661 0.002449605 0.002449605 2 1518 1518 3036 4608648
+173	70468484 46 2660 2661 0.002449605 0.002449605 2 0 0 0 0
+174	70468530 92 2660 2661 0.002449605 0.002449605 4 0 1 2 2
+175	70468622 98 2660 2661 0.002449605 0.002449605 4 0 1518 3036 4608648
+176	70468720 52 2660 2661 0.002449605 0.002449605 2 1518 1518 3036 4608648
+177	70468772 46 2660 2661 0.002449605 0.002449605 2 0 0 0 0
+178	70468818 52 2666 2667 0.002449605 0.002449605 2 1518 1518 3036 4608648
+179	70468870 46 2666 2667 0.002449605 0.002449605 2 0 0 0 0
+180	70468916 92 2666 4016 0.002449605 0.003680005 4 0 1 2 2
+181	70469008 98 2666 4016 0.002449605 0.003680005 4 0 1518 3036 4608648
+182	70469106 52 2669 4018 0.002449605 0.003680005 2 1518 1518 3036 4608648
+183	70469158 21015 2684 1079226 0.0024592025 0.9992112025 809 0 0 0 0
+184	70490173 23442 2691 1079228 0.0024624025 0.9992112025 809 1522 1522 1231298 1874035556
+185	70513615 29914 2691 1079228 0.0024624025 0.9992112025 809 0.0024624025 0.5952112025 241.7589732225 95.992032211921
+186	70543529 42030 2691 1079228 0.0024624025 0.9992112025 1618 0 1 809 809
+187	70585559 44457 2691 1079228 0.0024624025 0.9992112025 1618 0 1522 1231298 1874035556
+188	70630016 52 4000 5323 0.003670405 0.004900805 2 1518 1518 3036 4608648
+189	70630068 54 4001 5324 0.0036704075 0.0049008075 2 1518 1518 3036 4608648
+190	70630122 54 4001 5324 0.0036704075 0.0049008075 2 1518 1518 3036 4608648
+191	70630176 70 4002 5325 0.0036704075 0.0049008075 2 0.0012208025 0.0024512025 0.003672005 7.4987524400125e-06
+192	70630246 54 4002 5325 0.0036704075 0.0049008075 2 1518 3036 4554 11521620
+193	70630300 54 4010 5333 0.0036784075 0.0049088075 2 1518 1518 3036 4608648
+194	70630354 70 4010 5333 0.0036784075 0.0049088075 2 0.0012288025 0.0024592025 0.003688005 7.5576325200125e-06
+195	70630424 86 4010 5728 0.0036784075 0.0052304 4 0 1 2 2
+196	70630510 92 4010 5728 0.0036784075 0.0052304 4 0 1518 3036 4608648
+197	70630602 22606 4030 1079211 0.003686405 0.999201605 808 1522 1522 1229776 1871719072
+198	70653208 24302 4030 1079211 0.003686405 0.999201605 808 1522 1229776 497444392 4.0808248653234e+14
+199	70677510 28262 4030 1079211 0.003686405 0.999201605 808 0.003686405 0.595701605 242.15275604 96.229336462736
+200	70705772 28262 4030 1079211 0.003686405 0.999201605 808 0.003686405 0.595701605 242.15275604 96.229336462736
+201	70734034 44 4366 5730 0.004 0.0052304 2 1518 1518 3036 4608648
+202	70734078 5519 5454 1074696 0.005 0.995003746309 199 1 1 199 199
+203	70739597 6680 5455 1074697 0.005 0.995003746309 199 -4.7e-11 6.8e-11 1.303e-09 2.03791e-19
+204	70746277 5749 5456 1074698 0.005 0.995003746309 199 -36 53 966 121886
+205	70752026 5538 5457 1074686 0.005 0.995002238383 199 1 1 199 199
+206	70757564 6635 5458 1074687 0.005 0.995002238383 199 -2e-11 3.8e-11 1.733e-09 6.2775e-20
+207	70764199 5722 5459 1074688 0.005 0.995002238383 199 -15 29 1325 37579
+208	70769921 5532 5460 1074690 0.005 0.995003039012 199 1 1 199 199
+209	70775453 6606 5461 1074691 0.005 0.995003039012 199 -7e-12 6e-11 5.385e-09 1.97719e-19
+210	70782059 5689 5462 1074692 0.005 0.995003039012 199 -6 46 4169 119333
+211	70787748 48 5713 7030 0.0052208 0.0064512 2 1518 1518 3036 4608648
+212	70787796 54 5714 7031 0.0052208025 0.0064512025 2 1518 1518 3036 4608648
+213	70787850 54 5714 7031 0.0052208025 0.0064512025 2 1518 1518 3036 4608648
+214	70787904 70 5715 7032 0.0052208025 0.0064512025 2 0.0027711975 0.0040015975 0.006772795 2.3692318136012e-05
+215	70787974 54 5715 7032 0.0052208025 0.0064512025 2 1518 3036 4554 11521620
+216	70788028 54 5717 7034 0.0052208025 0.0064512025 2 1518 1518 3036 4608648
+217	70788082 70 5717 7034 0.0052208025 0.0064512025 2 0.0027711975 0.0040015975 0.006772795 2.3692318136012e-05
+218	70788152 48 5717 7034 0.0052208025 0.0064512025 2 1 2 3 5
+219	70788200 54 5717 7034 0.0052208025 0.0064512025 2 1518 3036 4554 11521620
+220	70788254 42 5728 7045 0.0052304 0.0064608 2 0 0 0 0
+221	70788296 19 1080056 1080056 1 1 1 1518 1518 1518 2304324
+222	70788315 19 1080056 1080056 1 1 1 1518 1518 1518 2304324
+223	70788334 24 1080056 1080056 1 1 1 303601518 303601518 303601518 9.2173881731904e+16
+224	70788358 19 1080059 1080059 1 1 1 1518 1518 1518 2304324
+225	70788377 19 1080059 1080059 1 1 1 1518 1518 1518 2304324
+226	70788396 24 1080059 1080059 1 1 1 303601518 303601518 303601518 9.2173881731904e+16
+227	70788420 19 1080063 1080063 1 1 1 1522 1522 1522 2316484
+228	70788439 19 1080063 1080063 1 1 1 1522 1522 1522 2316484
+229	70788458 22 1080063 1080063 1 1 1 3045522 3045522 3045522 9275204252484
+230	70788480 19 1080067 1080067 1 1 1 1522 1522 1522 2316484
+231	70788499 19 1080067 1080067 1 1 1 1522 1522 1522 2316484
+232	70788518 22 1080067 1080067 1 1 1 3045522 3045522 3045522 9275204252484
+233	70788540 19 1080071 1080071 1 1 1 1522 1522 1522 2316484
+234	70788559 19 1080071 1080071 1 1 1 1522 1522 1522 2316484
+235	70788578 22 1080071 1080071 1 1 1 3045522 3045522 3045522 9275204252484
+236	70788600 19 1080075 1080075 1 1 1 1522 1522 1522 2316484
+237	70788619 19 1080075 1080075 1 1 1 1522 1522 1522 2316484
+238	70788638 22 1080075 1080075 1 1 1 3045522 3045522 3045522 9275204252484
+239	70788660 19 1080079 1080079 1 1 1 1522 1522 1522 2316484
+240	70788679 19 1080079 1080079 1 1 1 1522 1522 1522 2316484
+241	70788698 22 1080079 1080079 1 1 1 3045522 3045522 3045522 9275204252484
+242	70788720 19 1080083 1080083 1 1 1 1522 1522 1522 2316484
+243	70788739 19 1080083 1080083 1 1 1 1522 1522 1522 2316484
+244	70788758 22 1080083 1080083 1 1 1 3045522 3045522 3045522 9275204252484
+
