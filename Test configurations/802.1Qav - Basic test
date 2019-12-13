@@ -2,42 +2,21 @@ SETUP:
 Connect two computers, each equipped with the Intel I210 network card.
 
 Board B (Under opt/iotg_/scripts…)
-
 	sudo bash ./setup_sync.sh -i enp1s0 -b boardB
-
 Board A
 	sudo bash ./setup_sync.sh -i enp1s0 -b boardA
-
 Board B
-
 	/opt/openavnu/ sudo ./run_srp.sh enp4s0 &
-
 	(The “&” starts the process in the background, so we can still use that command prompt).
-
 Board B, under "user1@TCN2:/opt/openavnu/examples/simple_listener$"
-
-Run:
 	sudo ./simple_listener -i enp5s0 -f <filename>.wav
-
-
 Open another board B:
-
 	iperf3 -s
-
 Open another board A, then go under Opt/OpenAvnu/ and run:
-
 	sudo ./run_srp.sh enp5s0 &
-
 On Board B start tcpdump:
-
 	sudo tcpdump -i enp5s0 -s 75 -w test/ <namefile>.pcap
-
 On board A run:
-
 	user1@TCN1:/opt/iotg_tsn_ref_sw/simple-talker-cmsg
-
-
 	sudo ./simpletalker-cmsg -i enp5s0 -t 2 -C 0 -q 0
-
-
 	iperf3 -c 169.254.0.2 -u -b 150M -l 1448 -t 30
