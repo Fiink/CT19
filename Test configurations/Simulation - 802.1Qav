@@ -1,3 +1,6 @@
+SETUP:
+Connect two computers, each equipped with the Intel I210 network card.
+
 Board B (Under opt/iotg_/scripts…)
 
 	sudo bash ./setup_sync.sh -i enp1s0 -b boardB
@@ -11,8 +14,7 @@ Board B
 
 	(The “&” starts the process in the background, so we can still use that command prompt).
 
-Board B, under
-user1@TCN2:/opt/openavnu/examples/simple_listener$
+Board B, under "user1@TCN2:/opt/openavnu/examples/simple_listener$"
 
 Run:
 	sudo ./simple_listener -i enp5s0 -f <filename>.wav
