@@ -8,7 +8,7 @@ cmdSet_Qav2 = "sudo tc qdisc replace dev enp4s0 parent 100:1 cbs idleslope 42762
 
 os.system(cmdSet_p6)
 os.system(cmdSet_Qav2)
-print("Start parameters already set by simple_talker, press (enter) to shaper")
+print("Start parameters set, press (enter) to start shaper")
 input(" ")
 
 print("\ttStart\t\t\ttMid\t\t\ttEnd")
